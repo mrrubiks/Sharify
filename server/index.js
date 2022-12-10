@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 const cors = require("cors");
 // const io = new Server(httpServer, {
 //     cors: {
-//         origin: "http://localhost:5001",
+//         origin: process.env.FRONTEND_URL,
 //         methods: ["GET", "POST", "PUT", "DELETE"]
 //     }
 // });
@@ -24,7 +24,7 @@ const cors = require("cors");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5001",
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
