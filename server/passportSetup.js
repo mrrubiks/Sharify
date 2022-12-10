@@ -58,12 +58,11 @@ function passportSetup(app) {
     // Set up passport-local strategy
     // Use .createStrategy() instead of .authenticate()
     passport.use(User.createStrategy());
-
     // Set up passport-google-oauth20 strategy
     passport.use(new googleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: process.env.GOOGLE_CALLBACK_URL
+        callbackURL: process.env.BACKEND_URL + process.env.GOOGLE_CALLBACK_URL
     },
         function verify(accessToken, refreshToken, profile, cb) {
             User.findOne({
@@ -100,7 +99,7 @@ function passportSetup(app) {
     passport.use(new githubStrategy({
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: process.env.GITHUB_CALLBACK_URL
+        callbackURL: process.env.BACKEND_URL + process.env.GITHUB_CALLBACK_URL
     },
         function verify(accessToken, refreshToken, profile, cb) {
             User.findOne({
