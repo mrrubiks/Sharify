@@ -51,7 +51,7 @@ router.get("/posts/:id", (req, res) => {
     }
 });
 
-router.get("/posts/user", (req, res) => {
+router.get("/userposts", (req, res) => {
     if (req.isUnauthenticated()) {
         res.status(401).json({
             message: "Unauthorized"
