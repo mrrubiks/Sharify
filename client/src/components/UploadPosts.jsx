@@ -54,7 +54,7 @@ function UploadPosts({ socket }) {
   }).then((response) => {
     if (!response.data.isAuthenticated) {
       toast.error("You need to be logged in to upload posts");
-      window.location.href = "/login";
+      window.location.href = process.env.REACT_APP_FRONTEND_URL + "/login";
     }
   });
 
@@ -68,7 +68,7 @@ function UploadPosts({ socket }) {
       .then((response) => {
         if (response.status === 200) {
           toast.success("Post uploaded!");
-          window.location.href = "/";
+          window.location.href = process.env.REACT_APP_FRONTEND_URL + "/";
         }
       })
       .catch((error) => {

@@ -26,9 +26,11 @@ function App() {
   // socket.on('connect', () => {
   //   console.log('Connected to server');
   // });
+  // console.log('App.js');
+  // console.log(process.env.REACT_APP_BACKEND_URL);
   return (
-    <> { /*React Fragment same as <div></div>*/}
-      <BrowserRouter>
+    <>
+      <BrowserRouter basename={process.env.REACT_APP_BASENAME}>
         <Routes> {/* Not using Switch because we want to render all the components that matches the path*/}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -36,7 +38,6 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/post/:id" element={<SharePosts />} />
           <Route path="/user/posts" element={<MyPosts />} />
-          {/* <Route path="/share/:user" element={<SharePosts  />} /> */}
           <Route path="/posts/upload" element={<UploadPosts />} />
           <Route path="/logout" element={<Logout />} />
         </Routes>
@@ -53,7 +54,6 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      {/* Same as */}
     </>
   );
 }

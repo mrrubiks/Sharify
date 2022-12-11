@@ -20,7 +20,7 @@ function Register() {
       .then((response) => {
         if (response.status === 200) {
           toast.success("User created successfully");
-          window.location.href = "/";
+          window.location.href = process.env.REACT_APP_FRONTEND_URL + "/";
         } else if (response.status === 201) {
           toast.warn("You are already logged in");
         }
@@ -76,7 +76,10 @@ function Register() {
                   </Button>
                 </div>
                 <p style={{ textAlign: "center", padding: "10px 0px 0px 0px" }}>
-                  Already have an account? <a href="/login">Login here</a>
+                  Already have an account?{" "}
+                  <a href={process.env.REACT_APP_FRONTEND_URL + "/login"}>
+                    Login here
+                  </a>
                 </p>
               </Form>
             </Card.Body>

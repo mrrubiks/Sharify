@@ -88,7 +88,7 @@ function Post(post) {
             <Button
               variant="outline-secondary"
               onClick={() => {
-                window.location.href = `/post/${post._id}`;
+                window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/post/${post._id}`;
               }}
               disabled={post.preview}
             >

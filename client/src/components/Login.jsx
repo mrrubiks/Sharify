@@ -19,7 +19,7 @@ function Login() {
     )
       .then((response) => {
         if (response.status === 200) {
-          window.location.href = "/";
+          window.location.href = process.env.REACT_APP_FRONTEND_URL + "/posts";
         } else if (response.status === 201) {
           toast.warn("You are already logged in");
         }
@@ -74,7 +74,10 @@ function Login() {
                   </Button>
                 </div>
                 <p style={{ textAlign: "center", padding: "10px 0px 0px 0px" }}>
-                  Don't have an account? <a href="/register">Register here</a>
+                  Don't have an account?{" "}
+                  <a href={process.env.REACT_APP_FRONTEND_URL + "/register"}>
+                    Register here
+                  </a>
                 </p>
               </Form>
             </Card.Body>
